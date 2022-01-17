@@ -41,6 +41,7 @@ const ExpenseForm = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+<<<<<<< Updated upstream:code/06-finished/src/components/NewExpense/ExpenseForm.js
 
     const expenseData = {
       title: enteredTitle,
@@ -53,17 +54,35 @@ const ExpenseForm = (props) => {
     setEnteredAmount('');
     setEnteredDate('');
   };
+=======
+    const expenseData = {
+      title: enteredTitle,
+      amount: enteredAmount,
+      date: new Date(enteredDate)
+    }
+
+    props.onSaveExpenseData(expenseData);
+    // console.log(expenseData)
+    setEnteredTitle('')
+    setEnteredDate('')
+    setEnteredAmount('')
+  }
+>>>>>>> Stashed changes:code/04-updating-state-that-depends-on-previous-state/src/components/NewExpense/ExpenseForm.js
 
   return (
     <form onSubmit={submitHandler}>
       <div className='new-expense__controls'>
         <div className='new-expense__control'>
           <label>Title</label>
+<<<<<<< Updated upstream:code/06-finished/src/components/NewExpense/ExpenseForm.js
           <input
             type='text'
             value={enteredTitle}
             onChange={titleChangeHandler}
           />
+=======
+          <input type='text' onChange={titleChangeHandler} value={enteredTitle} />
+>>>>>>> Stashed changes:code/04-updating-state-that-depends-on-previous-state/src/components/NewExpense/ExpenseForm.js
         </div>
         <div className='new-expense__control'>
           <label>Amount</label>
@@ -73,6 +92,7 @@ const ExpenseForm = (props) => {
             step='0.01'
             value={enteredAmount}
             onChange={amountChangeHandler}
+            value={enteredAmount}
           />
         </div>
         <div className='new-expense__control'>
@@ -83,6 +103,7 @@ const ExpenseForm = (props) => {
             max='2022-12-31'
             value={enteredDate}
             onChange={dateChangeHandler}
+            value={enteredDate}
           />
         </div>
       </div>
